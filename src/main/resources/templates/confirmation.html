@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" /> -->
+<title>Confirmation : Ajout/Modification de produit</title>
+</head>
+<body>
+	<p></p>
+	<div class="container col-md-6 col-md-offset-3 table-responsive-md"
+		layout:fragment="content">
+		<div class="card">
+			<div class="card-header bg-info text-white">
+                Les donnees du produit enregistrer
+            </div>
+			<div class="card-body">
+				<div class="form-group row justify-content-center align-items-center">
+					<label class="control-label col-md-3">ID : </label> 
+                    <input class="form-control col-md-8" th:value="${produit.idProduit}" disabled/> 
+                    <!-- <input type="hidden" th:value="${produit.idProduit}" /> -->
+				</div>
+				<div class="form-group row justify-content-center align-items-center">
+					<label class="control-label col-md-3">Désignation : </label> 
+                    <input class="form-control col-md-8" th:value="${produit.designation}" disabled/>
+                    <!-- <input type="hidden" th:value="${produit.designation}" /> -->
+				</div>
+				<div class="form-group row justify-content-center align-items-center">
+					<label class="control-label col-md-3">Prix :</label> 
+                    <input class="form-control col-md-8" th:value="${produit.prix}" disabled/>
+                    <!-- <input type="hidden" th:value="${produit.prix}" /> -->
+				</div>
+				<div class="form-group row justify-content-center align-items-center">
+					<label class="control-label col-md-3">Quantité :</label> 
+                    <input class="form-control col-md-8" th:value="${produit.quantite}" disabled/>
+                    <!-- <input type="hidden" th:value="${produit.quantite}" /> -->
+				</div>
+                <div class="row justify-content-center align-items-center">
+                    <a th:href="@{/user/index}" class="col col-md-2">   
+                        <input type="button" value="Ok" class="btn btn-success btn-block text-white" title="Ok" />
+                    </a>
+                </div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

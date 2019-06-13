@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta th:charset="utf-8">
+    <title>Inscription</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+
+<script type="text/javascript">
+/* 
+  function checkForm(form)
+  {
+    if(form.login.value == "") {
+      alert("Error: Login cannot be blank!");
+      form.login.focus();
+      return false;
+    }
+    // re = /^\w+$/;
+    // if(!re.test(form.login.value)) {
+    //   alert("Error: Username must contain only letters, numbers and underscores!");
+    //   form.login.focus();
+    //   return false;
+    // }
+    if(form.login.value != form.loginConfirm.value) {
+        alert("Error: The logins must be identical!");
+        form.login.focus();
+        return false;
+    }
+    if(form.password.value != form.passwordConfirm.value) {
+        alert("Error: The passwords must be identical!");
+        form.password.focus();
+        return false;
+    }
+
+    if(form.password.value != "" && form.password.value == form.passwordConfirm.value) {
+      if(form.password.value.length < 8 ) {
+        alert("Error: Password must contain at least 8 characters!");
+        form.password.focus();
+        return false;
+      }
+      if(form.password.value == form.login.value) {
+        alert("Error: Password must be different from Login!");
+        form.password.focus();
+        return false;
+      }
+      re = /[0-9]/;
+      if(!re.test(form.password.value)) {
+        alert("Error: password must contain at least one number (0-9)!");
+        form.password.focus();
+        return false;
+      }
+      re = /[a-z]/;
+      if(!re.test(form.password.value)) {
+        alert("Error: password must contain at least one lowercase letter (a-z)!");
+        form.password.focus();
+        return false;
+      }
+      re = /[A-Z]/;
+      if(!re.test(form.password.value)) {
+        alert("Error: password must contain at least one uppercase letter (A-Z)!");
+        form.password.focus();
+        return false;
+      }
+    } else {
+      alert("Error: Please check that you've entered and confirmed your password!");
+      form.password.focus();
+      return false;
+    }
+
+    alert("You entered a valid password: " + form.password.value);
+    return true;
+  } 
+  
+  */
+
+</script>
+
+</head>
+<body class="bg-light">
+    <br/><br/><br/>
+    <div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8 ">
+            <div class="card">
+                <div class="card-header bg-secondary text-white text-center">Inscription</div> 
+                
+                <div class="card-body">
+                    <form th:action="@{/saveuser}" method="POST" onsubmit="return checkForm(this);">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input name="nom" class="form-control col-5" placeholder="Nom" type="text" th:value="${user.nom}"/>
+                                <span class="text-danger" th:errors="${user.nom}"></span>
+                                <div class="col-2"></div>
+                                <input name="prenom" class="form-control col-5" placeholder="Prenom" 
+                                       type="text" th:value="${user.prenom}"/>
+                                <span class="text-danger" th:errors="${user.prenom}"></span>
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input name="dateNaissance" class="form-control col-5" placeholder="Date de naissance" type="date" th:value="${user.dateNaissance}"/>
+                                <span class="text-danger" th:errors="${user.dateNaissance}"></span>
+                                <div class="col-2"></div>
+                                <select class="form-control l col-5" placeholder="Sexe" name="sexe" th:value="${user.sexe}">                             
+                                    <option value="">Selectionner</option>
+                                    <option value="Homme">Homme</option>
+                                    <option value="Femme">Femme</option>
+                                </select>
+                                <span class="text-danger" th:errors="${user.sexe}"></span>
+                            </div>
+                        </div> 
+                        
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input name="adresse" class="form-control col-5" placeholder="Adresse" type="text" th:value="${user.adresse}"/>
+                                <span class="text-danger" th:errors="${user.adresse}"></span>
+                                <div class="col-2"></div>
+                                <input name="codePostale" class="form-control col-5" placeholder="Code postale" type="number" th:value="${user.codePostale}"/>
+                                <span class="text-danger" th:errors="${user.codePostale}"></span>
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input name="login" class="form-control col-5" placeholder="Email" type="email" th:value="${user.login}"/>
+                                <span class="text-danger" th:errors="${user.login}"></span>
+                                <div class="col-2"></div>
+                                <input name="loginConfirm" class="form-control col-5" placeholder="Confirm email" type="text"/>
+                                <span class="text-danger" th:errors="${user.login}"></span>
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input name="password" class="form-control col-5" placeholder="Password" type="password" th:value="${user.password}"/>
+                                <span class="text-danger" th:errors="${user.password}"></span>
+                                <div class="col-2"></div>
+                                <input name="passwordConfirm" class="form-control col-5" placeholder="Confirm password" type="password"/>
+                                <span class="text-danger" th:errors="${user.password}"></span>
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <div class="col-2"></div>
+                            <button type="reset" class="btn btn-secondary col-3 horizontal"><i class="fas fa-redo"></i>&nbsp; &nbsp; Reinitialiser  </button>
+                            <div class="col-2"></div>
+                            <button type="submit" class="btn btn-success col-3">
+                                <i class="fas fa-sign-in-alt" onclick="return confirm('Cliquez sur OK si vous etes certain(e) '+
+                                        'de vouloir enregistrer cet utilisateur.')">
+                                </i>&nbsp; &nbsp; Enregistrer  
+                            </button>
+                        </div> 
+                        
+                    </form>
+                </div>
+            </div> 
+        </div>
+        <div class="col"></div>
+    </div>
+</div> 
+
+
+
+</body>
+</html>

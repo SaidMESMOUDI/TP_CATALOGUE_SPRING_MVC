@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" /> -->
+<title>Accès refusé</title>
+</head>
+<body>
+	
+	<div class="container col-md-6 col-md-offset-3 table-responsive-md"
+        layout:fragment="content">
+        <p></p>
+		<div class="card">
+			<div class="card-header bg-info text-white">
+                Accès refusé 
+            </div>
+			<div class="card-body">
+				<h5 class="text-danger"> 
+                    <i class="large material-icons">report_problem</i> <!-- warning -->
+                    Vous n'êtes pas autorisé à accéder à cette ressource.
+                </h5>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
